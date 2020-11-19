@@ -25,7 +25,8 @@ To get the final output, we need to work out the realized return, total return a
 Item | Columns | Calculation |Data Source
 -----|--------|--------------|-----------
 Realized Return | Interest, Dividend, OtherIncome, RealizedPrice, RealizedFX, RealizedCross | add up the columns per position - adjustment01 | profit loss report
-Total Return | UnrealizedPrice, UnrealizedFX, UnrealizedCross | add up the columns and realized return per position - adjustment02 | profit loss report
+Total Return | UnrealizedPrice, UnrealizedFX, UnrealizedCross, Interest, Dividend, OtherIncome, RealizedPrice, RealizedFX, RealizedCross
+ | add up the columns per position - adjustment02 | profit loss report
 NAV | AccruedInterest, MarketValueBook | add up the columns per position - adjustment03 | investment position
 
 The calculation is the same in both scenarios (with or without cash), but adjustments are different:
