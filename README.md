@@ -2,15 +2,15 @@
 
 Here is the API description.
 
-## getPosition()
-[String] filename => [Dictionary] metaData, [Iterator] holding
+## getPositions()
+[String] filename => [Dictionary] metaData, [Iterator] positions
 
 where
 
-1) metaData is a dictionary object that contains the following keys:
+1) metaData: a dictionary object containing the following keys:
 AccountingRunType, BookCurrency, Portfolio, PeriodEndDate, PeriodStartDate
 
-2) holding is an iterator object representing a collection of positions, where each position is a dictionary object.
+2) positions: an iterator object representing a collection of positions, where each position is a dictionary object.
 
 
 ### Input File
@@ -23,7 +23,7 @@ The second part contains meta data, with key value separated by tabs. Search for
 
 ### Example
 file = "investment position 2020-07.txt"
-metaData, holding = getInvestmentPosition(file)
+metaData, positions = getPositions(file)
 
 Then the following should be true:
 ```
@@ -34,7 +34,7 @@ Then the following should be true:
   metaData['PeriodStartDate'] == '2020-07-01'
 ```
 
-Suppose pos is the first element in the holding iterator, then following should be true:
+Suppose pos is the first element in the positions iterator, then following should be true:
 
 ```
   pos['ReportMode'] == 'Investments'
