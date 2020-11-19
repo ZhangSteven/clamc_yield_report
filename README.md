@@ -2,10 +2,21 @@
 
 Here is the API description.
 
+## getReturnDataFromPositions()
+[Boolean] withCash, [Int] cutoffMonth, [Float] impairment, [Iterator] positions => [Float] realized return, [Float] total return
+
+A function to get realized return and total return value from investment positions, Where
+
+1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
+2) cutoffMonth: an integer value. For example, if it is 5, then any month on or before 5 is in case 1, otherwise case 2;
+3) impairment: a float value.
+4) positions: positions from an investment position report.
+
+
 ## getPositions()
 [String] filename => [Dictionary] metaData, [Iterator] positions
 
-where
+A function to read positions and meta data from an input file, where
 
 1) metaData: a dictionary object containing the following keys:
 AccountingRunType, BookCurrency, Portfolio, PeriodEndDate, PeriodStartDate
