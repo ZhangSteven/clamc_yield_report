@@ -1,6 +1,6 @@
 # Yield Calculation
 
-The final output of yield calculation contains 8 columns like below:
+The output of yield calculation looks like below. The following output needs to be calculated in two scenarios: with cash and without cash.
 
 Period | Realized Return | Total Return | Average NAV | Realized Return Rate | Total Return Rate
 -------|-----------------|--------------|-------------|----------------------|-------------------
@@ -9,7 +9,7 @@ Period | Realized Return | Total Return | Average NAV | Realized Return Rate | T
 2020-03| | | | | |
 XXX    | | | | | |
 
-The meaning of the items are:
+The meaning of the columns are:
 
 Item | Meaning
 -----|---------
@@ -18,3 +18,28 @@ Total Return | Similar to the above, but on total return numbers.
 Average NAV | The average of per month NAV since last year end. For the case of 2020 Mar, it means adding up NAV of 2019 Dec, 2020 Jan, 2020 Feb and 2020 Mar, then divide by 4.
 Realized Return Rate | Realized Return / Average NAV
 Total Return Rate | Total Return / Average NAV
+
+## Per Month Data
+To get the final output, we need to work out the realized return, total return and NAV per month first. Here is how.
+
+Item | Columns | Calculation |Data Source
+-----|--------|--------------|-----------
+Realized Return | Interest, Dividend, OtherIncome, RealizedPrice, RealizedFX, RealizedCross | add up the columns per position - adjustment01 | profit loss report
+Total Return | UnrealizedPrice, UnrealizedFX, UnrealizedCross | add up the columns and realized return per position - adjustment02 | profit loss report
+NAV | AccruedInterest, MarketValueBook | add up the columns per position - adjustment03 | investment position
+
+The calculation is the same in both scenarios (with or without cash), but adjustments are different:
+
+-| With Cash | Without Cash
+-|-----------|-------------
+adjustment01 | interest income of cash positions + interest income of CN Energy positions | realized return of cash positions + interest income of CN Energy positions
+adjustment02 | unrealized gain loss of CN Energy positions | unrealized gain loss of cash positions + unrealized gain loss of CN Energy positions
+adjustment03 | AccruedInterest of CN Energy positions + impairment (case 1) or impairment (case 2) | AccruedInterest and MarketValueBook of cash positions + AccruedInterest of CN Energy positions + impairment (case 1); AccruedInterest and MarketValueBook of cash positions + impairment (case 2)
+
+Where the terms are defined as below:
+
+1. interest income: add up Interest, Dividend, OtherIncome of a position
+2. unrealized gain loss: add up UnrealizedPrice, UnrealizedFX, UnrealizedCross of a position
+3. case 1 or case 2: we will tell which months below to case 1 and which belong to case 2 by run time
+4. impairement: a fixed number known by run time
+
