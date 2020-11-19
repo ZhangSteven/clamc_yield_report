@@ -49,7 +49,7 @@ Suppose pos is the first element in the positions iterator, then following shoul
 ```
 
 
-## getReturnDataFromPositions()
+## getReturnFromPositions()
 [Boolean] withCash, [Iterator] positions => [Float] realized return, [Float] total return
 
 A function to get realized return and total return value from profit and loss positions, where
@@ -58,7 +58,7 @@ A function to get realized return and total return value from profit and loss po
 2) positions: positions from an investment position report.
 
 
-## getNav()
+## getNavFromPositions()
 [Boolean] withCash, [Int] cutoffMonth, [Float] impairment, [Dictionary] metaData, [Iterator] positions => [Float] NAV
 
 A function to get NAV from investment positions, where
