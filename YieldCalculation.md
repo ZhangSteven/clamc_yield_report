@@ -28,7 +28,7 @@ Realized Return | Interest, Dividend, OtherIncome, RealizedPrice, RealizedFX, Re
 Total Return | UnrealizedPrice, UnrealizedFX, UnrealizedCross, Interest, Dividend, OtherIncome, RealizedPrice, RealizedFX, RealizedCross | adjustment02 | profit loss report
 NAV | AccruedInterest, MarketValueBook | adjustment03 | investment position
 
-The calculation is the same in both scenarios (with or without cash), but adjustments are different:
+The adjustments are different in two scenarios: with cash and without case
 
 -| With Cash | Without Cash
 -|-----------|-------------
