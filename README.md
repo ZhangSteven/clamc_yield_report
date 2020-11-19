@@ -50,14 +50,21 @@ Suppose pos is the first element in the positions iterator, then following shoul
 
 
 ## getReturnDataFromPositions()
-[Boolean] withCash, [Int] cutoffMonth, [Float] impairment, [Dictionary] metaData, [Iterator] positions => [Float] realized return, [Float] total return
+[Boolean] withCash, [Iterator] positions => [Float] realized return, [Float] total return
 
-A function to get realized return and total return value from investment positions, Where
+A function to get realized return and total return value from profit and loss positions, where
 
 1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
-2) cutoffMonth: an integer value. For example, if it is 5, then any month on or before 5 is in case 1, otherwise case 2;
-3) impairment: a float value.
-4) positions: positions from an investment position report.
+2) positions: positions from an investment position report.
 
 
 ## getNav()
+[Boolean] withCash, [Int] cutoffMonth, [Float] impairment, [Dictionary] metaData, [Iterator] positions => [Float] NAV
+
+A function to get NAV from investment positions, where
+
+1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
+2) cutoffMonth: an integer value in [1, 12]. For example, if it is 5 and the "PeriodEndDate" field of the metaData variable is on or before May, then it's case 1, case 2 otherwise;
+3) impairment: a fixed number;
+4) metaData: meta data of the positions;
+5) positions: positions from an investment position report.
