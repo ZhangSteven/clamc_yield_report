@@ -45,5 +45,5 @@ Suppose pos is the first element in the positions iterator, then following shoul
   ... any columns between SortKey and MarketValueBook ...
 
   pos['MarketValueBook'] == 2963497343.25 (original string is "2,963,497,343.25", convert to float number)
-  pos['Invest'] == 0.00149 (original string is 1.49%, convert to float number)
+  pos['Invest'] == 0.0149 (original string is 1.49%, convert to float number)
 ```
