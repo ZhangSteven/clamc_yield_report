@@ -22,7 +22,7 @@ The second part contains meta data, with key value separated by tabs. Search for
 
 
 ### Example
-file = "investment position 2020-07.txt"
+file = "samples\investment position 2020-07.txt"
 metaData, positions = getPositions(file)
 
 Then the following should be true:
@@ -38,7 +38,7 @@ Suppose pos is the first element in the positions iterator, then following shoul
 
 ```
   pos['ReportMode'] == 'Investments'
-  po s['LongShortDescription'] == 'Cash Long'
+  pos['LongShortDescription'] == 'Cash Long'
   pos['SortKey'] == 'Cash and Equivalents'
 
   ... any columns between SortKey and MarketValueBook ...
