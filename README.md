@@ -2,17 +2,6 @@
 
 Here is the API description.
 
-## getReturnDataFromPositions()
-[Boolean] withCash, [Int] cutoffMonth, [Float] impairment, [Iterator] positions => [Float] realized return, [Float] total return
-
-A function to get realized return and total return value from investment positions, Where
-
-1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
-2) cutoffMonth: an integer value. For example, if it is 5, then any month on or before 5 is in case 1, otherwise case 2;
-3) impairment: a float value.
-4) positions: positions from an investment position report.
-
-
 ## getPositions()
 [String] filename => [Dictionary] metaData, [Iterator] positions
 
@@ -58,3 +47,17 @@ Suppose pos is the first element in the positions iterator, then following shoul
   pos['MarketValueBook'] == 2963497343.25 (original string is "2,963,497,343.25", convert to float number)
   pos['Invest'] == 0.0149 (original string is 1.49%, convert to float number)
 ```
+
+
+## getReturnDataFromPositions()
+[Boolean] withCash, [Int] cutoffMonth, [Float] impairment, [Dictionary] metaData, [Iterator] positions => [Float] realized return, [Float] total return
+
+A function to get realized return and total return value from investment positions, Where
+
+1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
+2) cutoffMonth: an integer value. For example, if it is 5, then any month on or before 5 is in case 1, otherwise case 2;
+3) impairment: a float value.
+4) positions: positions from an investment position report.
+
+
+## getNav()
