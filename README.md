@@ -26,15 +26,17 @@ file = "investment position 2020-07.txt"
 metaData, holding = getInvestmentPosition(file)
 
 Then the following should be true:
-
+```
   metaData['AccountingRunType'] == 'ClosedPeriod'
   metaData['BookCurrency'] == 'HKD'
   metaData['Portfolio'] == '12XXXChinaLifeOverseasBondGroup'
   metaData['PeriodEndDate'] == '2020-07-31' (original date string is of format mm/dd/yyyy, change format to yyyy-mm-dd)
   metaData['PeriodStartDate'] == '2020-07-01'
+```
 
 Suppose pos is the first element in the holding iterator, then following should be true:
 
+```
   pos['ReportMode'] == 'Investments'
   po s['LongShortDescription'] == 'Cash Long'
   pos['SortKey'] == 'Cash and Equivalents'
@@ -43,4 +45,4 @@ Suppose pos is the first element in the holding iterator, then following should 
 
   pos['MarketValueBook'] == 2963497343.25 (original string is "2,963,497,343.25", convert to float number)
   pos['Invest'] == 0.00149 (original string is 1.49%, convert to float number)
-
+```
