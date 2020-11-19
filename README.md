@@ -22,8 +22,10 @@ The second part contains meta data, with key value separated by tabs. Search for
 
 
 ### Example
+```
 file = "samples\investment position 2020-07.txt"
 metaData, positions = getPositions(file)
+```
 
 Then the following should be true:
 ```
