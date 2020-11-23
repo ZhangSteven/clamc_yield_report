@@ -58,6 +58,7 @@ A function to get realized return and total return value from profit and loss po
 2) positions: positions from an investment position report.
 
 
+
 ## getNavFromPositions()
 [Boolean] withCash, [Int] cutoffMonth, [Float] impairment, [Dictionary] metaData, [Iterator] positions => [Float] NAV
 
@@ -68,3 +69,40 @@ A function to get NAV from investment positions, where
 3) impairment: a fixed number;
 4) metaData: meta data of the positions;
 5) positions: positions from an investment position report.
+
+
+
+## getAccumulateReturnFromFiles()
+[Boolean] withCash, [Iterator] files => [Iterator] accumulate realized return, [Iterator] accumulate total return
+
+A function to get realized return and total return value from profit and loss positions, where
+
+1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
+2) files: an iterator L of profit loss files from January, Feburary, ... to the current month, like below:
+
+Item | Value
+-----|------
+L[0] | profit loss report on January
+L[1] | profit loss report on Feburary
+...
+L[n-1] | profit loss report on month n
+
+Returns:
+
+1) accumulated realized return: an iterator L, where
+
+Item | Value
+-----|------
+L[0] | realized return on January
+L[1] | realized return on January + realized return on Feburary
+...
+L[n-1] | accumulated realized return of January, Febuary, ..., up to the current month
+
+2) accumulated total return: an iterator L, where
+
+Item | Value
+-----|------
+L[0] | total return on January
+L[1] | total return on January + total return on Feburary
+...
+L[n-1] | accumulated total return of January, Febuary, ..., up to the current month
