@@ -115,7 +115,7 @@ L[n-1] | accumulated total return of January, Febuary, ..., up to month n
 A function to get average NAVs from investment positions, where
 
 1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
-2) cutoffMonth: an integer value in [1, 12]. For example, if it is 5 and the "PeriodEndDate" field of the metaData variable is on or before May, then it's case 1, case 2 otherwise;
+2) cutoffMonth: an integer value in [1, 12]. For example, if it is 5 and the current month is May or before May, then it's case 1, case 2 otherwise;
 3) impairment: a fixed number;
 4) nav as of last year end: nav of last year end;
 5) files: an iterator L of investment position files from January, Feburary, ... to month n, like below:
