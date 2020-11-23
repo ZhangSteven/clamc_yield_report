@@ -73,12 +73,12 @@ A function to get NAV from investment positions, where
 
 
 ## getAccumulateReturnFromFiles()
-[Boolean] withCash, [Iterator] files => [Iterator] accumulate realized return, [Iterator] accumulate total return
+[Boolean] withCash, [Iterator] files => [Iterator] accumulate realized returns, [Iterator] accumulate total returns
 
-A function to get realized return and total return value from profit and loss positions, where
+A function to get accmulated realized returns and total returns from profit and loss positions, where
 
 1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
-2) files: an iterator L of profit loss files from January, Feburary, ... to the current month, like below:
+2) files: an iterator L of profit loss files from January, Feburary, ... to month n, like below:
 
 Item | Value
 -----|------
@@ -89,20 +89,42 @@ L[n-1] | profit loss report on month n
 
 Returns:
 
-1) accumulated realized return: an iterator L, where
+1) accumulated realized returns: an iterator L, where
 
 Item | Value
 -----|------
 L[0] | realized return on January
 L[1] | realized return on January + realized return on Feburary
 ...
-L[n-1] | accumulated realized return of January, Febuary, ..., up to the current month
+L[n-1] | accumulated realized return of January, Febuary, ..., up to month n
 
-2) accumulated total return: an iterator L, where
+2) accumulated total returns: an iterator L, where
 
 Item | Value
 -----|------
 L[0] | total return on January
 L[1] | total return on January + total return on Feburary
 ...
-L[n-1] | accumulated total return of January, Febuary, ..., up to the current month
+L[n-1] | accumulated total return of January, Febuary, ..., up to month n
+
+
+
+## getAverageNavFromFiles()
+[Boolean] withCash, [Int] cutoffMonth, [Float] impairment, [Float] nav as of previous year end, [Iterator] files => [Iterator] NAV
+
+A function to get average NAVs from investment positions, where
+
+1) withCash: a boolean indicator, True means the scenario with cash, False otherwise;
+2) cutoffMonth: an integer value in [1, 12]. For example, if it is 5 and the "PeriodEndDate" field of the metaData variable is on or before May, then it's case 1, case 2 otherwise;
+3) impairment: a fixed number;
+4) nav as of last year end: nav of last year end;
+5) files: an iterator L of investment position files from January, Feburary, ... to month n, like below:
+
+Item | Value
+-----|------
+L[0] | investment positions report on January
+L[1] | investment positions report on Feburary
+...
+L[n-1] | investment positions report on month n
+
+Returns an iterator on average NAVs on January, Feburary, ... up to month n.
